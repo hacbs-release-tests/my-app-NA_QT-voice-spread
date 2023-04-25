@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: dc-metro-map-vtqn
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dc-metro-map-vtqn
+    app.kubernetes.io/part-of: my-app
+  name: dc-metro-map-vtqn
+  namespace: user1-tenant
+spec:
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dc-metro-map-vtqn
+    weight: 100
+status: {}
